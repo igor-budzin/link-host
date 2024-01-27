@@ -7,10 +7,18 @@
 <style>
 </style>
 <script>
-  window.location.href = 'rabbylight://test.dev?token=dsdsadsad';
   
+  const url = new URL(window.location.href) 
+  const redirectoTo = url.searchParams.get('url');
+
+  if (redirectoTo) {
+    setTimeout(() => {
+      window.location.href = redirectoTo;
+      window.close();
+    }, 100)
+  }  
 </script>
 <body>
-<h1>Test</h1> 
+<h1>Redirect...</h1> 
 </body>
 </html>
